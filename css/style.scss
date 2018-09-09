@@ -1,6 +1,5 @@
-$background: #ffecd1;
-$header-background: #ffebcd;
-$header-container-background: #e6fffc;
+$header-background: #B2FFD6;
+$header-container-background: #FFFFFF;
 
 @mixin center-content() {
   display: flex;
@@ -15,8 +14,9 @@ $header-container-background: #e6fffc;
 body {
   width: 100%;
   height: 100%;
-  
-  background-color: $background;
+
+  background: -webkit-linear-gradient(to right, #a1ffce, #faffd1); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #a1ffce, #faffd1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1,
@@ -28,10 +28,6 @@ h4 {
 header {
   width: 100%;
   height: 100px;
-
-  background-color: $header-background;
-
-  border-bottom: 1px solid #e0e0e0;
 
   text-align: center;
 
@@ -77,9 +73,8 @@ header {
 
     max-width: 100%;
 
-    background-color: #e6fffc;
+    background-color: white;
 
-    border: 1px solid #dddddd;
     border-top: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -90,6 +85,7 @@ header {
 
     .day-weather {
       max-width: 20%;
+      border: 1px solid #ddd;
     }
 
     .heading {
@@ -102,9 +98,9 @@ header {
 
     .weather-condition {
       @include center-content;
-      font-size: 1.8rem;
       padding: 10px;
       text-align: center;
+      font-size: 1.8rem;
     }
 
     .forecast {
@@ -117,9 +113,9 @@ header {
 
     .day-temp {
       @include center-content;
-      font-weight: 500;
       margin-bottom: 10px;
       font-size: 1.6rem;
+      font-weight: 500;
     }
   }
 }

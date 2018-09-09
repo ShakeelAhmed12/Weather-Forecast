@@ -30,7 +30,8 @@ function fetchWeather(city) {
       return response.json();
     })
     .then(function(response) {
-      renderData(response.list); //We send the recieved data to this function where it will be displayed to the user
+      renderData(response.list);
+      //We send the recieved data to this function where it will be displayed to the user
     })
     .catch(function(error) {
       alert("Could not find your city, please try again");
@@ -41,15 +42,27 @@ function fetchWeather(city) {
 // An event listener that will run the following code when a click is detected on the search button
 searchBtn.addEventListener("click", event => {
   if (inputField.value !== "") {
-    event.preventDefault();
     fetchWeather(inputField.value);
-    cityName.textContent =
-      inputField.value.charAt(0).toUpperCase() + inputField.value.substr(1);
   }
 });
 
+inputField.addEventListener("keyup", event => {
+  if(event.keyCode === 13){
+    if(inputField.value !== ""){
+      fetchWeather(inputField.value);
+    }
+  }
+});
+
+function showCity(){
+    cityName.textContent =
+    inputField.value.charAt(0).toUpperCase() + inputField.value.substr(1);
+}
+
 //We will extract the relevant data from the json response and display it to the user
 function renderData(weatherData) {
+  showCity();
+  
   if (!weather.hasChildNodes()) {
     //We will cycle through the array of 40 elements and just fetch the data for the 5-days of weather forecasts
     for (let i = 0; i < weatherData.length; i += 8) {
