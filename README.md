@@ -9,5 +9,7 @@ Website that will display a 5 day forecast for any city that the user has entere
 * HTML
 * SCSS
 * JavaScript
+* JSON
 * BootStrap
 * Fontawesome
+* OpenWeather Api
